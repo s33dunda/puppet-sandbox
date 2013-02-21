@@ -42,6 +42,15 @@ class puppet::server(
     ensure => directory,
     before => Package[ 'puppetmaster' ],
   }
+  
+  # required to prevent report processor error on puppet server
+  file { "/var/lib/puppet/reports/$fqdn":
+    ensure => directory,
+    owner => 'puppet',
+    group => 'puppet',
+    mode => '0644',
+    require => Package[ 'puppetmaster' ],
+  }
 
   package { 'puppetmaster':
     ensure => $ensure,
@@ -50,7 +59,6 @@ class puppet::server(
 
   package { 'puppet-lint':
     ensure   => latest,
-    provider => gem,
   }
 
   file { 'puppet.conf':
