@@ -12,5 +12,6 @@ class { 'puppet': }
 class { 'networking': }
 
 if $hostname == 'puppet' {
-  class { 'puppet::server': }
+  class { 'puppet::server': 
+  ensure => 'puppet-2.7.19'}
 }

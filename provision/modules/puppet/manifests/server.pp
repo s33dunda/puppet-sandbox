@@ -48,7 +48,7 @@ class puppet::server(
     ensure => directory,
     owner => 'puppet',
     group => 'puppet',
-    mode => '0644',
+    mode => '0750',
     require => Package[ 'puppetmaster' ],
   }
 

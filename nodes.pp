@@ -3,10 +3,9 @@
 #
 
 # self-manage the puppet master server
-node 'puppet' { 
+node 'puppet' {
   include stdlib
 }
-
 
 ##### CLIENTS
 
@@ -21,12 +20,16 @@ node 'mysql' {
 }
 
 node 'mongodb' {
-  include stdlib 
+  include stdlib
   class { 'mongodb': }
 }
 
-node 'apache2' { 
+node 'apache2' {
   include stdlib
   class { 'apache': }
   class { 'apache::mod::php': }
+}
+
+node 'dev' {
+  include stlib
 }
