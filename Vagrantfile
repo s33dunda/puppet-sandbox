@@ -18,6 +18,7 @@ Vagrant::Config.run do |config|
       node_config.vm.box_url = 'http://files.vagrantup.com/' + node_config.vm.box + '.box'
       node_config.vm.host_name = node[:hostname] + '.' + domain
       node_config.vm.network :hostonly, node[:ip]
+      node_config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
 
       if node[:fwdhost]
         node_config.vm.forward_port node[:fwdguest], node[:fwdhost]

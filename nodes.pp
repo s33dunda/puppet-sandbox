@@ -32,5 +32,5 @@ node 'apache2' {
 
 node 'dev' {
   include stdlib
-  class { 'dev' : } 
+  class { 'rspecpackages' : } 
 }
