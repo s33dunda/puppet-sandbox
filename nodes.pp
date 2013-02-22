@@ -31,5 +31,6 @@ node 'apache2' {
 }
 
 node 'dev' {
-  include stlib
+  include stdlib
+  class { 'dev' : } 
 }

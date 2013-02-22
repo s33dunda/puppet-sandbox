@@ -1,4 +1,2 @@
-nodes.pp
 database_design_specialist_lab_files/*
-modules/*
 .vagrant
